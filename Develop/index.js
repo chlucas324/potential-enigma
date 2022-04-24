@@ -1,61 +1,90 @@
-const inquirer = require('inquirer');
+// declare external packages
 const fs = require('fs');
 const util = require('util');
+const inquirer = require('inquirer');
 
-// TODO: Create an array of questions for user input
-const questions = [{
+
+const generateMarkdown = require('./utils/generateMarkdown');
+
+//array of questions for user
+const promptUser = () => {
+    return inquirer.prompt([
+{        
     type: 'input',
-    message: 'What is the title of the project?',
-    name: 'Title'
+    name: 'title',
+    message: 'What is the title of the project? (Required)',
+    validate: titleInput => {
+    if (titleInput) {
+        return true;
+    } else {
+      console.log('Please enter a project title!');
+      return false;  
+    }
+  }
 },
 {
     type: 'input',
-    message: 'Write a brief description of your project.',
-    name: 'Description'
+    name: 'description',
+    message: 'Write a brief description of your project.'   
 },
 {
     type: 'input',
-    message: 'Table of Contents',
-    name: 'Table of Contents'
+    name: 'table of Contents',
+    message: 'Table of Contents'   
 }, 
 {
     type: 'input',
-    message: 'What does the user need to install in order to run this application?',
-    name: 'Installation'
+    name: 'installation',
+    message: 'What does the user need to install in order to run this application?'  
 },
 {
     type: 'input',
-    message: 'Describe how the application is used.',
-    name: 'Usage'
+    name: 'usage',
+    message: 'Describe how the application is used.'    
 },
 {
     type: 'input',
-    message: 'List contributors to this project',
-    name: 'contributing'
+    name: 'contributing',
+    message: 'List contributors to this project'    
 },
 {
     type: 'list',
+    name: 'license',
     message: 'Choose the appropriate license for the project: ',
-    choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
-    name: 'license'
+    choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']   
 },
 {
     type: 'input',
-    message: 'List any tests written for the application',
-    name: 'tests'
+    name: 'tests',
+    message: 'List any tests written for the application'    
 },
 {
     type: 'input',
-    message: 'What do I do if I have a question?',
-    name:  'questions'
+    name:  'questions',
+    message: 'What do I do if I have a question?'    
+},
+{
+    type: 'input',
+    name: 'username',
+    message: 'Please enter your GitHub username: '    
+},
+{
+    type: 'input',
+    name: 'email',
+    message: 'Please enter your email: '   
 }
+]);
+};
 
-
-
-];
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+//function to write README file
+function writeToFile(fileName, data) {
+fs.writeFile(fileName, data, err => {
+    if(err) {
+        return console.log(err);
+    }
+    console.log('Your README.md file has been generated!')
+});
+}
 
 // TODO: Create a function to initialize app
 function init() {}
