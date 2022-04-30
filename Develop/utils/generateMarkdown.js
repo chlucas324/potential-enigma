@@ -23,7 +23,7 @@ function renderLicenseBadge(license) {
     return "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)]"
   }
   if (license === "The Unlicense") {
-    return "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)]"
+    return "[![License](https://img.shields.io/badge/License-Unlicense-blue.svg)]"
   }
   if (license === "") {
     return ""
@@ -69,8 +69,6 @@ function generateMarkdown(data) {
   ${renderLicenseBadge(data.license)}
 
   # ${data.title}
-
-  https://github.com/${data.username}/${data.title}
 
   ## Description
   ${data.description}
