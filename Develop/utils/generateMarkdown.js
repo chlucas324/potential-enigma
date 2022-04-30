@@ -2,7 +2,7 @@
 
 function renderLicenseBadge(license) {
   if (license === "GNU AGPLv3") {
-    return "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)]"
+    return "[!https://img.shields.io/badge/License-AGPL_v3-blue.svg]"
   }
   if(license === "GNU GPLv3") {
     return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]"
@@ -37,7 +37,7 @@ function renderLicenseLink(license) {
     return "https://www.gnu.org/licenses/agpl-3.0"
   }
   if(license === "GNU GPLv3") {
-    return "https://www.gnu.org/licenses/gpl-3.0]"
+    return "https://www.gnu.org/licenses/gpl-3.0"
   }
   if (license === "GNU LGPLv3") {
     return "https://www.gnu.org/licenses/lgpl-3.0"
@@ -62,47 +62,48 @@ function renderLicenseLink(license) {
   }
 }
 
-// Function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
 
 // Function to generate markdown for README
 function generateMarkdown(data) {
   return `
+  ${renderLicenseBadge(data.license)}
+
   # ${data.title}
 
-  ##Description
+  https://github.com/${data.username}/${data.title}
+
+  ## Description
   ${data.description}
 
   ## Table of Contents
-  -[description](#description)
-  -[installation](#installation)
-  -[usage](#usage)
-  -[licenses](#licenses)
-  -[contributing](#contributing)
-  -[tests](#tests)
-  -[username](#username)
-  -[email](#email)
-
-  ##Installation
+  * [Description](#Description)
+  * [Installation](#Installation)
+  * [Usage](#Usage)
+  * [Contributing](#Contributing)
+  * [Tests](#Tests)
+  * [Questions](#Questions)
+  * [License](#License)
+  
+  ## Installation
   ${data.installation}
 
-  ##Usage
+  ## Usage
   ${data.usage}
 
-  ##License
-  This application is covered by the ${data.license} license.
-
-  ##Contributing
+  ## Contributing
   ${data.contributing}
 
-  ##Tests
+  ## Tests
   ${data.tests}
 
-  ##Questions
-  ${data.questions}<br>
-  Find me on GitHub[${data.username}]<br>
-  Email me with any questions ${data.email}<br>
+  ### Questions
+  To request additional information: 
+  Find me on GitHub: [${data.username}]<br /><br />
+  Email me with any questions: ${data.email}
+
+  ## License
+  This application is covered by the ${data.license} license: ${renderLicenseLink(data.license)}.
+
 `;
 }
 

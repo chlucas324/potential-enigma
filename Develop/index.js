@@ -1,7 +1,6 @@
 // declare external packages
-const fs = require('fs');
-// const util = require('util');
 const inquirer = require('inquirer');
+const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 //array of questions for user
@@ -25,7 +24,7 @@ const questions = [
 {
     type: 'input',
     name: 'description',
-    message: 'Write a brief description of your project.', 
+    message: 'Write a brief description of your project. (Required)', 
     validate: descriptionInput => {
         if (descriptionInput) {
             return true;
@@ -40,20 +39,12 @@ const questions = [
     type: 'input',
     name: 'table of Contents',
     message: 'Table of Contents',   
-    validate: TableOfContentsInput => {
-        if (TableOfContentsInput) {
-            return true;
-        } else {
-          console.log('Please provide a Table of Contents.');
-          return false;   
-        }
-    }
   },
 // installation instructions
 {
     type: 'input',
     name: 'installation',
-    message: 'What does the user need to install in order to run this application?',  
+    message: 'What does the user need to install in order to run this application? (Required)',  
     validate: installationInput => {
         if (installationInput) {
             return true;
@@ -67,7 +58,7 @@ const questions = [
 {
     type: 'input',
     name: 'usage',
-    message: 'Describe how the application is used.',
+    message: 'Describe how the application is used. (Required)',
     validate: usageInput => {
         if (usageInput) {
             return true;
@@ -81,12 +72,12 @@ const questions = [
 {
     type: 'input',
     name: 'contributing',
-    message: 'List contributors to this project',    
+    message: 'List guidelines for contributing to this project. (Required)',    
     validate: contributingInput => {
         if (contributingInput) {
             return true;
         } else {
-          console.log('Please list contributors or write N/A if none.');
+          console.log('Please list how to contribute to this project.');
           return false;   
         }
     }
@@ -96,15 +87,7 @@ const questions = [
     type: 'list',
     name: 'license',
     message: 'Choose the appropriate license for the project: ',
-    choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],   
-    validate: licenseInput => {
-        if (licenseInput) {
-            return true;
-        } else {
-          console.log('Please pick a license.');
-          return false;   
-        }
-    }
+    choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],       
   },
 // testing information
 {
@@ -112,17 +95,11 @@ const questions = [
     name: 'tests',
     message: 'List any tests written for the application'    
 },
-// questions- how to contact
-{
-    type: 'input',
-    name:  'questions',
-    message: 'What do I do if I have a question?'    
-},
 // GitHub username
 {
     type: 'input',
     name: 'username',
-    message: 'Please enter your GitHub username: ',
+    message: 'Please enter your GitHub username: (Required)',
     validate: githubInput => {
         if (githubInput) {
             return true;
