@@ -12,4 +12,6 @@ This node.js application uses input from inquirer (in the terminal) to generate 
 
 The application can be used by running the command `node index.js` at the root of the project directory. Enter `node index.js` in the terminal and answer the prompts.
 
+## Link to Walkthrough Video
 
+https://drive.google.com/file/d/15FlID0JCCyV053XQJ1Ezf2CW-DLA1ikK/view
