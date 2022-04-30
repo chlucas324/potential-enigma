@@ -127,7 +127,7 @@ fs.writeFile(fileName, data, err => {
 });
 }
 
-// TODO: Create a function to initialize app
+// function to initialize app
 function init() {
     inquirer.prompt(questions)
     .then(function(data) {
