@@ -6,10 +6,10 @@ This node.js application uses input from inquirer (in the terminal) to generate 
 
 ## Installation
 
-<npm init> and <npm install inquirer> need to be installed prior to running the application.
+`npm init` and `npm install inquirer` need to be installed prior to running the application.
 
 ## Usage
 
-The application can be used by running the command <node index.js> at the root of the project directory. Enter <node index.js> in the terminal and answer the prompts.
+The application can be used by running the command `node index.js` at the root of the project directory. Enter `node index.js` in the terminal and answer the prompts.
 
 
