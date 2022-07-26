@@ -1,17 +1,37 @@
-# Professional README Generator 
 
-## Description
+  [![License](https://img.shields.io/badge/License-Unlicense-blue.svg)]
 
-This node.js application uses input from inquirer (in the terminal) to generate a README.md file.  The README.md file is created in the Develop folder.
+  # readme-generator
 
-## Installation
+  ## Description
+  This application uses node to generate README.md files
 
-`npm init` and `npm install inquirer` need to be installed prior to running the application.
+  ## Table of Contents
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)
+  * [License](#license)
+  
+  ## Installation
+  node and inquirer
 
-## Usage
+  ## Usage
+  This application uses node to generate a README.md file by having the user answer prompts in the terminal.
 
-The application can be used by running the command `node index.js` at the root of the project directory. Enter `node index.js` in the terminal and answer the prompts.
+  ## Contributing
+  n/a
 
-## Link to Walkthrough Video
+  ## Tests
+  n/a
 
-https://drive.google.com/file/d/15FlID0JCCyV053XQJ1Ezf2CW-DLA1ikK/view
+  ### Questions
+  To request additional information: 
+  Find me on GitHub: [chlucas324]<br /><br />
+  Email me with any questions: chlucas324@gmail.com
+
+  ## License
+  This application is covered by the The Unlicense license: http://unlicense.org/.
+
